@@ -1,5 +1,6 @@
 package EmailApp;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Email {
@@ -11,21 +12,27 @@ public class Email {
     private int mailboxCapacity;
     private String AlternateEmail;
     private int defaultPasswordLength = 10;
+    private String email;
+    private String companySuffix = "aeycompany.com";
+    private int getMailboxCapacity = 500;
+    private String setAlternateEmail;
 
     // constructor to receive  the first name and last name
 
         public Email(String firstName, String lastName) {
             this.firstName = firstName;
             this.lastName = lastName;
-            System.out.println("EMAIL CREATED" + this.firstName + "" + this.lastName);
 
             //call a method asking for department  - return the department
             this.setDepartment = setDepartment();
-            System.out.println("Department: " + this.department);
 
             // call a method that return a random password
             this.password = randomPassword(defaultPasswordLength);
             System.out.println("Your Password is: " + this.password);
+
+            // combine elements to generate email
+            email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + companySuffix;
+
         }
 
 
@@ -53,8 +60,27 @@ public class Email {
     }
 
     //set the mailbox capacity
-
+        public void setMailboxCapacity(int capacity) {
+            this.mailboxCapacity = capacity;
+        }
     //set the alternate email
+    public void setAlternateEmail(String altEmail) {
+            this.setAlternateEmail = altEmail;
+    }
 
     //change the password
+    public void changePassword(String password) {
+            this.password = password;
+    }
+    public int getMailboxCapacity() { return mailboxCapacity; }
+    public String getAlternateEmail() { return setAlternateEmail; }
+    public String getPassword() { return password; }
+    
+    public String showInfo() {
+        final String mb = "mb";
+        return  "DISPLAY NAME " + firstName + "" + lastName +
+                    "\nCOMPANY EMAIL: " + email +
+                    "\nMAILBOX CAPACITY: " + mailboxCapacity + "mb" ;
+    }
+
 }
