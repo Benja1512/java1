@@ -75,12 +75,14 @@ public class Email {
     public int getMailboxCapacity() { return mailboxCapacity; }
     public String getAlternateEmail() { return setAlternateEmail; }
     public String getPassword() { return password; }
-    
-    public String showInfo() {
-        final String mb = "mb";
-        return  "DISPLAY NAME " + firstName + "" + lastName +
-                    "\nCOMPANY EMAIL: " + email +
-                    "\nMAILBOX CAPACITY: " + mailboxCapacity + "mb" ;
+
+
+    public  String showInfo() {
+            return "DISPLAY NAME: " + firstName + "" + lastName +
+                    "COMPANY EMAIL: " + email +
+                    "MAILBOX CAPACITY: " + mailboxCapacity + "mb";
+
+
     }
 
 }
